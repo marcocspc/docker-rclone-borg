@@ -2,8 +2,7 @@ version: "3.7"
 services:
   borgmatic-rclone:
     labels: 
-      kompose.service.type: loadbalancer
-      kompose.volume.type: “hostPath”
+      kompose.volume.type: hostPath
     build: .
     volumes:
       - "./crontab.txt:/var/spool/cron/crontabs/root"
