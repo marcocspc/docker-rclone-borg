@@ -1,0 +1,6 @@
+*.swp
+crontab.txt
+rclone.conf
+borgmatic-rclone.env
+borgmatic.conf.yaml
+data_to_backup/

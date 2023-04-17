@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  borgmatic-rclone:
+    labels: 
+      kompose.service.type: loadbalancer
+      kompose.volume.type: “hostPath”
+    build: .
+    volumes:
+      - "./crontab.txt:/var/spool/cron/crontabs/root"
+      - "./rclone:/root/.config/rclone"
+      - "./data_to_backup:/data_to_backup"
+      - "./borgmatic.conf.yaml:/etc/borgmatic/config.yaml"
+    env_file: 
+      - borgmatic-rclone.env
+    devices:
+      - "/dev/fuse"
+    cap_add:
+      - SYS_ADMIN
