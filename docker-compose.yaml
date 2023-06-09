@@ -3,7 +3,10 @@ services:
   borgmatic-rclone:
     labels: 
       kompose.volume.type: hostPath
-    build: .
+    build: 
+      context: .
+      args:
+        RCLONE_VER: "v1.62.1"
     volumes:
       - "./crontab.txt:/var/spool/cron/crontabs/root"
       - "./rclone:/root/.config/rclone"

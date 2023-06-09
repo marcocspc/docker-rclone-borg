@@ -10,11 +10,11 @@ On your host, of course, you'll need to [install Docker](https://docs.docker.com
 
 Also install rclone (mandatory to generate config file) and fuse (make sure driver is loaded, it's safer to just reboot the host after install).
 
-You need to install make for your distribution.
+You need to install `make` for your distribution.
 
-## Using
+### Using
 
-First, copy the .example files to their "non-example" versions:
+First, copy the .example files to their respective "non-example" versions:
 
 ```
 make config-files

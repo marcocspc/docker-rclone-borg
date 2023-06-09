@@ -70,7 +70,7 @@ storage:
     # initialized with passphrase/repokey encryption. Quote the value if it contains
     # punctuation, so it parses correctly. And backslash any quote or backslash
     # literals as well.
-    encryption_passphrase: ""
+    encryption_passphrase: "${BORG_PASSPHRASE}"
 
     # Type of compression to use when creating archives. See
     # https://borgbackup.readthedocs.org/en/stable/usage.html#borg-create for details.
@@ -149,12 +149,13 @@ consistency:
 hooks:
     # List of one or more shell commands or scripts to execute before creating a backup.
     before_backup:
-        - echo "`date` - Starting a backup job."
+        #/proc/1/fd/1 needed to show in docker logs
+        - echo "`date` - Starting a backup job." >> /proc/1/fd/1
 
     # List of one or more shell commands or scripts to execute after creating a backup.
     after_backup:
-        - echo "`date` - Backup created."
+        - echo "`date` - Backup created." >> /proc/1/fd/1
 
     # List of one or more shell commands or scripts to execute in case an exception has occurred.
     on_error:
-        - echo "`date` - Error while creating a backup."
+        - echo "`date` - Error while creating a backup." >> /proc/1/fd/1
