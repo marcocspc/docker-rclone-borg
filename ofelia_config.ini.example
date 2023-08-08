@@ -1,0 +1,3 @@
+[job-local "borg backup at 3am"]
+schedule = 0 0 3 * * *
+command = /bin/ash -c "/usr/bin/borgmatic --verbosity -1 --syslog-verbosity 1 >> /dev/sdtout 2>&1"

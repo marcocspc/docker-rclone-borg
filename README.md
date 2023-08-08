@@ -26,6 +26,7 @@ Or do it manually:
 cp borgmatic-rclone.env.example borgmatic-rclone.env
 cp borgmatic.conf.yaml.example borgmatic.conf.yaml
 cp crontab.txt.example crontab.txt
+cp ofelia_config.ini.example ofelia_config.ini
 ```
 
 Then edit those files to match your context. After that generate rclone.conf:

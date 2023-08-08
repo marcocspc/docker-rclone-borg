@@ -1,4 +1,16 @@
+FROM alpine:3.17.3 as ofelia
+
+RUN apk --no-cache add go gcc musl-dev git
+
+WORKDIR /ofelia
+RUN git clone https://github.com/mcuadros/ofelia
+
+WORKDIR /ofelia/ofelia
+RUN go build -o /go/bin/ofelia .
+
 FROM alpine:3.17.3
+
+COPY --from=ofelia /go/bin/ofelia /usr/bin/ofelia
 
 ARG RCLONE_VER="v1.62.2"
 

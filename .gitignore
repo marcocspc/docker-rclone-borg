@@ -6,3 +6,4 @@ borgmatic.conf.yaml
 data_to_backup/
 kubernetes.yml
 kubernetes.yaml
+*.ini

@@ -1,2 +1,0 @@
-#runs once per day at 3AM
-0 3 * * * /usr/bin/borgmatic --verbosity -1 --syslog-verbosity 1 >> /dev/stdout 2>&1

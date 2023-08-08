@@ -15,5 +15,5 @@ done
 echo "Files inside rclone mount are:"
 ls -l /rclone/mount
 
-echo "Starting crond."
-/usr/sbin/crond -f -l 2 -L /dev/stdout
+echo "Starting ofelia. (crond replacement)"
+ofelia daemon --config=/ofelia_config.ini
