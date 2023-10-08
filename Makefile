@@ -45,8 +45,9 @@ shell:
 config-files:
 	cp borgmatic-rclone.env.example borgmatic-rclone.env
 	cp borgmatic.conf.yaml.example borgmatic.conf.yaml
-	cp crontab.txt.example crontab.txt
 	cp ofelia_config.ini.example ofelia_config.ini
+	mkdir -p ./rclone
+	cp rclone.config.example ./rclone/rclone.conf
 
 .PHONY: run
 run:
