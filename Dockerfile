@@ -1,4 +1,4 @@
-FROM alpine:3.17.3 as ofelia
+FROM alpine:3.23.0 as ofelia
 
 RUN apk --no-cache add go gcc musl-dev git
 
@@ -6,9 +6,10 @@ WORKDIR /ofelia
 RUN git clone https://github.com/mcuadros/ofelia
 
 WORKDIR /ofelia/ofelia
+RUN git checkout 44ac008a34905eb4ceb540a213a2238e4545b4df
 RUN go build -o /go/bin/ofelia .
 
-FROM alpine:3.17.3
+FROM alpine:3.23.0
 
 COPY --from=ofelia /go/bin/ofelia /usr/bin/ofelia
 
@@ -20,6 +21,7 @@ RUN	architecture=""; \
 		i686)   architecture="386" ;; \
 		x86_64) architecture="amd64" ;; \
 		arm*) architecture="arm-v6" ;; \
+		aarch64) architecture="arm-v6" ;; \
 	esac ; \
     echo "https://downloads.rclone.org/$RCLONE_VER/rclone-$RCLONE_VER-linux-$architecture.zip" > /tmp/rclone_url
     

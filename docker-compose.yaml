@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   borgmatic-rclone:
+    restart: always
     labels: 
       kompose.volume.type: hostPath
     build: 
@@ -10,7 +11,7 @@ services:
     volumes:
       - "./ofelia_config.ini:/ofelia_config.ini"
       - "./rclone:/root/.config/rclone"
-      - "./data_to_backup:/data_to_backup"
+      - "/home/marcocspc/docker:/data_to_backup"
       - "./borgmatic.conf.yaml:/etc/borgmatic/config.yaml"
     env_file: 
       - borgmatic-rclone.env
